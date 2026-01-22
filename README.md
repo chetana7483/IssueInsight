@@ -47,6 +47,18 @@ Development teams face thousands of GitHub issues daily. Manual triage is time-c
 
 ---
 
+🏗️ Architecture
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+│  Streamlit  │ ───> │   FastAPI   │ ───> │   GitHub    │
+│   Frontend  │      │   Backend   │      │     API     │
+└─────────────┘      └─────────────┘      └─────────────┘
+                            │
+                            ▼
+                     ┌─────────────┐
+                     │   OpenAI    │
+                     │  GPT-4o-mini│
+                     └─────────────┘
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -286,6 +298,14 @@ GITHUB_TOKEN=ghp_xxxxxxxxxxxxx
 OPENAI_MODEL=gpt-4o-mini
 TEMPERATURE=0.3
 ```
+
+API Endpoints
+GET / - Health check
+GET /health - Health status
+POST /analyze - Analyze GitHub issue
+Request body: {"repo_url": "string", "issue_number": integer}
+Response: IssueAnalysis JSON
+
 
 ### Getting API Keys
 
